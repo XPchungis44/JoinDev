@@ -1,0 +1,20 @@
+{
+  "name": "joindev-discord-bot",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "JoinDev Discord bot for owner-controlled authorized member joins.",
+  "main": "joindev-bot.js",
+  "scripts": {
+    "start": "node joindev-bot.js",
+    "bot": "node joindev-bot.js",
+    "check": "node --check joindev-bot.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "discord.js": "^14.27.0",
+    "dotenv": "^16.4.7"
+  }
+}
