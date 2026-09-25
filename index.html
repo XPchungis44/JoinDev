@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>JoinDev — Server growth made easy!</title>
+<meta name="description" content="JoinDev helps your Discord server grow quickly and effectively — for free." />
+<style>
+  :root {
+    --bg: #0b0d12;
+    --bg-2: #12151c;
+    --card: #161a23;
+    --border: #232838;
+    --text: #e6e9ef;
+    --muted: #8b93a7;
+    --blurple: #5865F2;
+    --blurple-2: #7c85ff;
+    --green: #23a55a;
+    --radius: 14px;
+    --max: 1100px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .wrap {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* ---------- NAV ---------- */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(11, 13, 18, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+
+  .logo {
+    font-weight: 800;
+    font-size: 1.15rem;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .logo-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--blurple);
+    box-shadow: 0 0 12px var(--blurple);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 22px;
+    font-size: 0.92rem;
+    color: var(--muted);
+  }
+
+  .nav-links a:hover { color: var(--text); }
+
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+  }
+
+  /* ---------- BUTTONS ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .btn:active { transform: scale(0.97); }
+
+  .btn-primary {
+    background: var(--blurple);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(88, 101, 242, 0.35);
+  }
+
+  .btn-primary:hover { background: var(--blurple-2); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--text);
+    border-color: var(--border);
+  }
+
+  .btn-ghost:hover { border-color: var(--blurple); }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    padding: 90px 20px 70px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -180px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(88, 101, 242, 0.22), transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero > * { position: relative; z-index: 1; }
+
+  .badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 22px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 18px;
+  }
+
+  .hero h1 .accent {
+    background: linear-gradient(135deg, var(--blurple), var(--blurple-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero p {
+    font-size: clamp(1rem, 2.2vw, 1.2rem);
+    color: var(--muted);
+    max-width: 560px;
+    margin: 0 auto 34px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ---------- SECTION ---------- */
+  section {
+    padding: 70px 20px;
+  }
+
+  .section-head {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .section-head h2 {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+
+  .section-head p {
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* ---------- HOW IT WORKS ---------- */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 18px;
+  }
+
+  .step {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 26px 20px;
+    position: relative;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .step:hover {
+    border-color: var(--blurple);
+    transform: translateY(-3px);
+  }
+
+  .step-num {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(88, 101, 242, 0.15);
+    border: 1px solid var(--blurple);
+    color: var(--blurple-2);
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .step h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .step p {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  /* ---------- FEATURES ---------- */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+  }
+
+  .feature {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    transition: border-color 0.2s ease;
+  }
+
+  .feature:hover { border-color: var(--blurple); }
+
+  .feature-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(88, 101, 242, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 16px;
+  }
+
+  .feature h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .feature p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ---------- CTA ---------- */
+  .cta {
+    background: linear-gradient(135deg, rgba(88, 101, 242, 0.12), rgba(88, 101, 242, 0.03));
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 50px 30px;
+    text-align: center;
+  }
+
+  .cta h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+
+  .cta p {
+    color: var(--muted);
+    margin-bottom: 26px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 30px 20px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  footer a { color: var(--blurple-2); }
+  footer a:hover { text-decoration: underline; }
+
+  /* ---------- PLACEHOLDER NOTICE ---------- */
+  .dev-note {
+    background: rgba(35, 165, 90, 0.08);
+    border: 1px solid rgba(35, 165, 90, 0.3);
+    color: #8fe3b0;
+    font-size: 0.8rem;
+    padding: 10px 14px;
+    border-radius: 10px;
+    margin: 20px auto 0;
+    max-width: 640px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo">
+      <span class="logo-dot"></span>
+      JoinDev
+    </div>
+    <div class="nav-links">
+      <a href="#how">How It Works</a>
+      <a href="#features">Features</a>
+      <a href="#start">Get Started</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="badge">Free • Discord-powered • No setup fees</div>
+  <h1>
+    <span class="accent">JoinDev</span><br />
+    Server growth made easy!
+  </h1>
+  <p>
+    Grow your Discord server quickly and effectively — for free.
+    Authorize the bot, install it, and start farming members today.
+  </p>
+  <div class="hero-actions">
+    <!-- REPLACE THIS HREF with your bot authorization URL -->
+    <!-- Example: https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&scope=bot&permissions=8 -->
+    <a class="btn btn-primary" href="#" id="authorizeBtn">
+      Authorize Bot
+    </a>
+    <!-- REPLACE THIS HREF with your Discord server invite -->
+    <a class="btn btn-ghost" href="#" id="joinServerBtn">
+      Join Our Server
+    </a>
+  </div>
+  <div class="dev-note">
+    ⚙️ Placeholder buttons — your redirect links will be added later.
+  </div>
+</header>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>How It Works</h2>
+      <p>Five simple steps to start growing your server.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Authorize the Bot</h3>
+        <p>Authorize the JoinDev bot to your apps. This lets it connect to your Discord account safely.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Install to Servers</h3>
+        <p>Install the bot to the servers you would like to grow. You control which ones.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Start Farming</h3>
+        <p>Begin farming members and earning coins as your server grows on the network.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Features</h2>
+      <p>Growing servers quickly and effectively — for free!</p>
+    </div>
+
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">🚀</div>
+        <h3>Fast Growth</h3>
+        <p>Get real members joining your server in minutes, not weeks. Built for momentum.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">💸</div>
+        <h3>Completely Free</h3>
+        <p>No paywalls, no premium tiers for the core experience. Growth shouldn't cost money.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">🪙</div>
+        <h3>Earn Coins</h3>
+        <p>Farm coins by participating. Spend them to boost your own server's visibility.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">🛡️</div>
+        <h3>Verified Members</h3>
+        <p>Every join is authenticated through Discord — no bots, no fakes, no spam.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">⚡</div>
+        <h3>Effortless Setup</h3>
+        <p>Authorize, install, and go. No config files, no dashboards to learn.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">📈</div>
+        <h3>Built to Scale</h3>
+        <p>Whether you're at 10 members or 10,000, JoinDev keeps your growth steady.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section id="start">
+  <div class="wrap">
+    <div class="cta">
+      <h2>Ready to grow your server?</h2>
+      <p>Authorize the bot and start farming members in under a minute.</p>
+      <!-- REPLACE THIS HREF with your bot authorization URL -->
+      <a class="btn btn-primary" href="#" id="ctaBtn">
+        Get Started — It's Free
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <p>© 2025 JoinDev. Server growth made easy!</p>
+    <p style="margin-top: 8px;">
+      <!-- REPLACE THIS HREF with your Discord server invite -->
+      <a href="#" id="footerInvite">Join our Discord</a>
+      &nbsp;•&nbsp;
+      <a href="#how">How It Works</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  /*
+   * ============================================================
+   *  PLACEHOLDER LINK CONFIGURATION
+   * ============================================================
+   *  When your bot is ready, replace the "#" values below with
+   *  your real URLs. Keeping them here means you only edit ONE
+   *  place instead of hunting through the HTML.
+   * ============================================================
+   */
+  const LINKS = {
+    // Your Discord bot authorization URL
+    // Format: https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&scope=bot&permissions=YOUR_PERMS
+    authorizeBot: "#",
+
+    // Your Discord server invite link
+    // Format: https://discord.gg/YOUR_INVITE_CODE
+    joinServer: "#"
+  };
+
+  // Wire up the buttons
+  document.getElementById("authorizeBtn").href   = LINKS.authorizeBot;
+  document.getElementById("ctaBtn").href         = LINKS.authorizeBot;
+  document.getElementById("joinServerBtn").href  = LINKS.joinServer;
+  document.getElementById("footerInvite").href   = LINKS.joinServer;
+</script>
+
+</body>
+</html>
