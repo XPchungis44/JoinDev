@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FAQ — JoinDev</title>
+<meta name="description" content="Frequently asked questions about JoinDev — server growth made easy!" />
+<style>
+  :root {
+    --bg: #0b0d12;
+    --bg-2: #12151c;
+    --card: #161a23;
+    --border: #232838;
+    --text: #e6e9ef;
+    --muted: #8b93a7;
+    --blurple: #5865F2;
+    --blurple-2: #7c85ff;
+    --warning: #f0b232;
+    --warning-bg: rgba(240, 178, 50, 0.08);
+    --warning-border: rgba(240, 178, 50, 0.35);
+    --radius: 14px;
+    --max: 900px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .wrap {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* ---------- NAV ---------- */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(11, 13, 18, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .logo {
+    font-weight: 800;
+    font-size: 1.15rem;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .logo-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--blurple);
+    box-shadow: 0 0 12px var(--blurple);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 22px;
+    font-size: 0.92rem;
+    color: var(--muted);
+  }
+
+  .nav-links a:hover { color: var(--text); }
+
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+  }
+
+  /* ---------- BUTTONS ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .btn:active { transform: scale(0.97); }
+
+  .btn-primary {
+    background: var(--blurple);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(88, 101, 242, 0.35);
+  }
+
+  .btn-primary:hover { background: var(--blurple-2); }
+
+  /* ---------- PAGE HEADER ---------- */
+  .page-head {
+    padding: 70px 20px 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-head::before {
+    content: "";
+    position: absolute;
+    top: -180px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(88, 101, 242, 0.18), transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page-head > * { position: relative; z-index: 1; }
+
+  .page-head h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 14px;
+  }
+
+  .page-head h1 .accent {
+    background: linear-gradient(135deg, var(--blurple), var(--blurple-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .page-head p {
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 auto;
+    font-size: 1.02rem;
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq-section {
+    padding: 30px 20px 60px;
+  }
+
+  .faq-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 14px;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+  }
+
+  .faq-item:hover { border-color: rgba(88, 101, 242, 0.5); }
+
+  .faq-item[open] { border-color: var(--blurple); }
+
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 20px 24px;
+    font-weight: 600;
+    font-size: 1.02rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    user-select: none;
+  }
+
+  .faq-item summary::-webkit-details-marker { display: none; }
+
+  .faq-item summary::after {
+    content: "+";
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--blurple-2);
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .faq-item[open] summary::after {
+    content: "−";
+  }
+
+  .faq-body {
+    padding: 0 24px 22px;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .faq-body p { margin-bottom: 10px; }
+  .faq-body p:last-child { margin-bottom: 0; }
+
+  .faq-body a {
+    color: var(--blurple-2);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .faq-body a:hover { color: #a5abff; }
+
+  .faq-body code {
+    background: rgba(88, 101, 242, 0.15);
+    color: var(--blurple-2);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.88em;
+    font-family: "SF Mono", Monaco, Menlo, Consolas, monospace;
+  }
+
+  /* ---------- SAFETY NOTE ---------- */
+  .safety-note {
+    background: var(--warning-bg);
+    border: 1px solid var(--warning-border);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    margin-top: 30px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .safety-note .icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    line-height: 1.4;
+  }
+
+  .safety-note .content {
+    flex: 1;
+  }
+
+  .safety-note strong {
+    color: var(--warning);
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.98rem;
+  }
+
+  .safety-note p {
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .safety-note code {
+    background: rgba(240, 178, 50, 0.15);
+    color: var(--warning);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.88em;
+    font-family: "SF Mono", Monaco, Menlo, Consolas, monospace;
+  }
+
+  /* ---------- CTA ---------- */
+  .cta {
+    background: linear-gradient(135deg, rgba(88, 101, 242, 0.12), rgba(88, 101, 242, 0.03));
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 44px 30px;
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .cta h2 {
+    font-size: clamp(1.4rem, 4vw, 1.8rem);
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+
+  .cta p {
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 30px 20px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  footer a { color: var(--blurple-2); }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<nav>
+  <div class="nav-inner">
+    <a href="/JoinDev/" class="logo">
+      <span class="logo-dot"></span>
+      JoinDev
+    </a>
+    <div class="nav-links">
+      <a href="/JoinDev/#how">How It Works</a>
+      <a href="/JoinDev/#features">Features</a>
+      <a href="/JoinDev/faq">FAQ</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= PAGE HEADER ================= -->
+<header class="page-head">
+  <h1>Frequently Asked <span class="accent">Questions</span></h1>
+  <p>Everything you need to know about JoinDev. Still stuck? Join our Discord and ask away.</p>
+</header>
+
+<!-- ================= FAQ LIST ================= -->
+<section class="faq-section">
+  <div class="wrap">
+
+    <!-- Q1 -->
+    <details class="faq-item" open>
+      <summary>How do I start?</summary>
+      <div class="faq-body">
+        <p>
+          Click <a href="#" id="authorizeLink">this</a> — the OAuth2 will auto-redirect you, and when the bot is
+          authorized it will send you a help DM with everything you need to get going.
+        </p>
+      </div>
+    </details>
+
+    <!-- Q2 -->
+    <details class="faq-item">
+      <summary>How will I know what servers the bot joins me to?</summary>
+      <div class="faq-body">
+        <p>
+          Discord's official bot will message you. You'll receive a DM every time JoinDev adds you to a server,
+          so you always know exactly where you've been placed.
+        </p>
+      </div>
+    </details>
+
+    <!-- Q3 -->
+    <details class="faq-item">
+      <summary>How many days until I get my JoinCoin for being in a server?</summary>
+      <div class="faq-body">
+        <p>
+          Three full days. You must remain in the server for a complete 72 hours before the JoinCoin is credited
+          to your account.
+        </p>
+      </div>
+    </details>
+
+    <!-- Q4 -->
+    <details class="faq-item">
+      <summary>Am I able to purchase JoinCoins?</summary>
+      <div class="faq-body">
+        <p>
+          Yes, but not yet. JoinDev is a free service at its core, but purchasing JoinCoins will be an optional
+          feature in the future for users who want to accelerate their growth.
+        </p>
+      </div>
+    </details>
+
+    <!-- Q5 -->
+    <details class="faq-item">
+      <summary>Why does the bot need administrator?</summary>
+      <div class="faq-body">
+        <p>
+          The bot needs administrator because it requires <strong>Manage Server</strong> permissions and the
+          ability to <strong>create invites</strong> in order to function. The OAuth2 permission flow was also
+          being finicky, so administrator ended up being the simplest reliable option. 😂
+        </p>
+      </div>
+    </details>
+
+    <!-- Q6 -->
+    <details class="faq-item">
+      <summary>What happens if the bot token gets leaked?</summary>
+      <div class="faq-body">
+        <p>
+          The bot will automatically put itself into a <strong>shutdown state</strong>. This is a built-in safety
+          measure so that a compromised token can't be abused — the service goes offline until the issue is
+          resolved.
+        </p>
+      </div>
+    </details>
+
+    <!-- Q7 -->
+    <details class="faq-item">
+      <summary>What's the status of the service?</summary>
+      <div class="faq-body">
+        <p>
+          The current status is <strong>beta</strong>. Features may change, and you might occasionally run into
+          rough edges — but the core experience is live and working.
+        </p>
+      </div>
+    </details>
+
+    <!-- Q8 -->
+    <details class="faq-item">
+      <summary>How do JoinCoins work?</summary>
+      <div class="faq-body">
+        <p>
+          You gain <strong>1 JoinCoin</strong> for every server you stay in for more than three days that the bot
+          adds you to. Stay active, stay in servers, and your coin balance grows.
+        </p>
+      </div>
+    </details>
+
+    <!-- SAFETY NOTE -->
+    <div class="safety-note">
+      <div class="icon">⚠️</div>
+      <div class="content">
+        <strong>General note</strong>
+        <p>
+          If the bot starts adding you to servers even though you have <strong>no active farm JoinCoins
+          requests</strong>, that is a malfunction. Please immediately run <code>/cancel_joinr</code> to stop it.
+        </p>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <h2>Still have questions?</h2>
+      <p>Hop into our Discord — we're always around to help.</p>
+      <a class="btn btn-primary" href="https://discord.gg/HJbbKYbr2y" target="_blank" rel="noopener">
+        Join Our Discord
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <p>© 2025 JoinDev. Server growth made easy!</p>
+    <p style="margin-top: 8px;">
+      <a href="https://discord.gg/HJbbKYbr2y" target="_blank" rel="noopener">Join our Discord</a>
+      &nbsp;•&nbsp;
+      <a href="/JoinDev/">Home</a>
+      &nbsp;•&nbsp;
+      <a href="/JoinDev/#how">How It Works</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  /*
+   * ============================================================
+   *  LINK CONFIGURATION — edit these two values only
+   * ============================================================
+   */
+  const LINKS = {
+    // Bot authorization URL (used for the "this" link in Q1)
+    authorizeBot: "https://discord.com/oauth2/authorize?client_id=1552458677821382656&response_type=code&redirect_uri=https%3A%2F%2Fdiscord.com%2Foauth2%2Fauthorize%3Fclient_id%3D1552458677821382656&scope=guilds+identify+guilds.join",
+
+    // Discord server invite
+    joinServer: "https://discord.gg/HJbbKYbr2y"
+  };
+
+  // Wire up the "this" link in Q1
+  document.getElementById("authorizeLink").href = LINKS.authorizeBot;
+</script>
+
+</body>
+</html>
