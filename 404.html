@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>404 — Page Not Found | JoinDev</title>
+<meta name="description" content="This page does not exist. Questions? Join our support server." />
+<style>
+  :root {
+    --bg: #0b0d12;
+    --card: #161a23;
+    --border: #232838;
+    --text: #e6e9ef;
+    --muted: #8b93a7;
+    --blurple: #5865F2;
+    --blurple-2: #7c85ff;
+    --radius: 14px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  body::before {
+    content: "";
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(88, 101, 242, 0.18), transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .card {
+    position: relative;
+    z-index: 1;
+    max-width: 520px;
+    width: 100%;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 48px 32px 40px;
+  }
+
+  .code {
+    font-size: clamp(4rem, 14vw, 6rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    background: linear-gradient(135deg, var(--blurple), var(--blurple-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    color: var(--muted);
+    font-size: 0.98rem;
+    margin-bottom: 28px;
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 22px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .btn:active { transform: scale(0.97); }
+
+  .btn-primary {
+    background: var(--blurple);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(88, 101, 242, 0.35);
+  }
+
+  .btn-primary:hover { background: var(--blurple-2); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--text);
+    border-color: var(--border);
+  }
+
+  .btn-ghost:hover { border-color: var(--blurple); }
+
+  .footer-note {
+    margin-top: 26px;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  .footer-note a {
+    color: var(--blurple-2);
+    text-decoration: none;
+  }
+
+  .footer-note a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="code">404</div>
+    <h1>This page does not exist.</h1>
+    <p>Questions? Head over to our support server and we'll help you out.</p>
+
+    <div class="actions">
+      <a class="btn btn-primary" href="https://discord.gg/HJbbKYbr2y" target="_blank" rel="noopener">
+        Join Support Server
+      </a>
+      <a class="btn btn-ghost" href="/JoinDev/">
+        ← Back to JoinDev
+      </a>
+    </div>
+
+    <p class="footer-note">
+      Or visit our <a href="/JoinDev/faq">FAQ</a> for common questions.
+    </p>
+  </div>
+
+</body>
+</html>
