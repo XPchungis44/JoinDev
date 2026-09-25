@@ -330,19 +330,6 @@
 
   footer a { color: var(--blurple-2); }
   footer a:hover { text-decoration: underline; }
-
-  /* ---------- PLACEHOLDER NOTICE ---------- */
-  .dev-note {
-    background: rgba(35, 165, 90, 0.08);
-    border: 1px solid rgba(35, 165, 90, 0.3);
-    color: #8fe3b0;
-    font-size: 0.8rem;
-    padding: 10px 14px;
-    border-radius: 10px;
-    margin: 20px auto 0;
-    max-width: 640px;
-    text-align: center;
-  }
 </style>
 </head>
 <body>
@@ -374,18 +361,12 @@
     Authorize the bot, install it, and start farming members today.
   </p>
   <div class="hero-actions">
-    <!-- REPLACE THIS HREF with your bot authorization URL -->
-    <!-- Example: https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&scope=bot&permissions=8 -->
     <a class="btn btn-primary" href="#" id="authorizeBtn">
       Authorize Bot
     </a>
-    <!-- REPLACE THIS HREF with your Discord server invite -->
     <a class="btn btn-ghost" href="#" id="joinServerBtn">
       Join Our Server
     </a>
-  </div>
-  <div class="dev-note">
-    ⚙️ Placeholder buttons — your redirect links will be added later.
   </div>
 </header>
 
@@ -473,7 +454,6 @@
     <div class="cta">
       <h2>Ready to grow your server?</h2>
       <p>Authorize the bot and start farming members in under a minute.</p>
-      <!-- REPLACE THIS HREF with your bot authorization URL -->
       <a class="btn btn-primary" href="#" id="ctaBtn">
         Get Started — It's Free
       </a>
@@ -486,7 +466,6 @@
   <div class="wrap">
     <p>© 2025 JoinDev. Server growth made easy!</p>
     <p style="margin-top: 8px;">
-      <!-- REPLACE THIS HREF with your Discord server invite -->
       <a href="#" id="footerInvite">Join our Discord</a>
       &nbsp;•&nbsp;
       <a href="#how">How It Works</a>
@@ -497,24 +476,18 @@
 <script>
   /*
    * ============================================================
-   *  PLACEHOLDER LINK CONFIGURATION
-   * ============================================================
-   *  When your bot is ready, replace the "#" values below with
-   *  your real URLs. Keeping them here means you only edit ONE
-   *  place instead of hunting through the HTML.
+   *  LINK CONFIGURATION — edit these two values only
    * ============================================================
    */
   const LINKS = {
-    // Your Discord bot authorization URL
-    // Format: https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&scope=bot&permissions=YOUR_PERMS
-    authorizeBot: "#",
+    // Bot authorization URL
+    authorizeBot: "https://discord.com/oauth2/authorize?client_id=1552458677821382656&response_type=code&redirect_uri=https%3A%2F%2Fdiscord.com%2Foauth2%2Fauthorize%3Fclient_id%3D1552458677821382656&scope=guilds+identify+guilds.join",
 
-    // Your Discord server invite link
-    // Format: https://discord.gg/YOUR_INVITE_CODE
-    joinServer: "#"
+    // Discord server invite
+    joinServer: "https://discord.gg/HJbbKYbr2y"
   };
 
-  // Wire up the buttons
+  // Wire up all buttons
   document.getElementById("authorizeBtn").href   = LINKS.authorizeBot;
   document.getElementById("ctaBtn").href         = LINKS.authorizeBot;
   document.getElementById("joinServerBtn").href  = LINKS.joinServer;
