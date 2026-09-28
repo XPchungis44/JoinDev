@@ -21,7 +21,6 @@
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -188,9 +187,7 @@
   }
 
   /* ---------- SECTION ---------- */
-  section {
-    padding: 70px 20px;
-  }
+  section { padding: 70px 20px; }
 
   .section-head {
     text-align: center;
@@ -222,7 +219,6 @@
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 26px 20px;
-    position: relative;
     transition: border-color 0.2s ease, transform 0.2s ease;
   }
 
@@ -246,17 +242,9 @@
     margin-bottom: 16px;
   }
 
-  .step h3 {
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-  }
+  .step h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
 
-  .step p {
-    font-size: 0.88rem;
-    color: var(--muted);
-    line-height: 1.55;
-  }
+  .step p { font-size: 0.88rem; color: var(--muted); line-height: 1.55; }
 
   /* ---------- FEATURES ---------- */
   .features {
@@ -287,17 +275,8 @@
     margin-bottom: 16px;
   }
 
-  .feature h3 {
-    font-size: 1.05rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-  }
-
-  .feature p {
-    font-size: 0.9rem;
-    color: var(--muted);
-    line-height: 1.6;
-  }
+  .feature h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; }
+  .feature p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
 
   /* ---------- CTA ---------- */
   .cta {
@@ -314,10 +293,7 @@
     margin-bottom: 12px;
   }
 
-  .cta p {
-    color: var(--muted);
-    margin-bottom: 26px;
-  }
+  .cta p { color: var(--muted); margin-bottom: 26px; }
 
   /* ---------- FOOTER ---------- */
   footer {
@@ -365,8 +341,8 @@
     <a class="btn btn-primary" href="#" id="authorizeBtn">
       Authorize Bot
     </a>
-    <a class="btn btn-ghost" href="#" id="joinServerBtn">
-      Join Our Server
+    <a class="btn btn-ghost" href="#" id="addBotBtn">
+      Add Bot
     </a>
   </div>
 </header>
@@ -479,22 +455,25 @@
 <script>
   /*
    * ============================================================
-   *  LINK CONFIGURATION — edit these two values only
+   *  LINK CONFIGURATION
    * ============================================================
    */
   const LINKS = {
-    // Bot authorization URL
-    authorizeBot: "https://discord.com/oauth2/authorize?client_id=1552458677821382656&response_type=code&redirect_uri=https%3A%2F%2Fdiscord.com%2Foauth2%2Fauthorize%3Fclient_id%3D1552458677821382656&scope=guilds+identify+guilds.join",
+    // Authorize (grants OAuth scopes, sends welcome DM)
+    authorizeBot: "https://discord.com/oauth2/authorize?client_id=1552458677821382656&response_type=code&redirect_uri=https%3A%2F%2Fjoindev.onrender.com%2Fcallback&scope=identify+guilds+guilds.join",
+
+    // Add Bot (installs the bot to a server)
+    addBot: "https://discord.com/oauth2/authorize?client_id=1552458677821382656",
 
     // Discord server invite
     joinServer: "https://discord.gg/HJbbKYbr2y"
   };
 
   // Wire up all buttons
-  document.getElementById("authorizeBtn").href   = LINKS.authorizeBot;
-  document.getElementById("ctaBtn").href         = LINKS.authorizeBot;
-  document.getElementById("joinServerBtn").href  = LINKS.joinServer;
-  document.getElementById("footerInvite").href   = LINKS.joinServer;
+  document.getElementById("authorizeBtn").href = LINKS.authorizeBot;
+  document.getElementById("ctaBtn").href       = LINKS.authorizeBot;
+  document.getElementById("addBotBtn").href    = LINKS.addBot;
+  document.getElementById("footerInvite").href = LINKS.joinServer;
 </script>
 
 </body>
