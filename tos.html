@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Terms of Service — JoinDev</title>
+<meta name="description" content="JoinDev Terms of Service — rules and guidelines for using our Discord bot." />
+<style>
+  :root {
+    --bg: #0b0d12;
+    --bg-2: #12151c;
+    --card: #161a23;
+    --border: #232838;
+    --text: #e6e9ef;
+    --muted: #8b93a7;
+    --blurple: #5865F2;
+    --blurple-2: #7c85ff;
+    --warning: #f0b232;
+    --danger: #ED4245;
+    --radius: 14px;
+    --max: 900px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--blurple-2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .wrap {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* ---------- NAV ---------- */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(11, 13, 18, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .logo {
+    font-weight: 800;
+    font-size: 1.15rem;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text);
+  }
+
+  .logo-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--blurple);
+    box-shadow: 0 0 12px var(--blurple);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 22px;
+    font-size: 0.92rem;
+    color: var(--muted);
+  }
+
+  .nav-links a { color: var(--muted); }
+  .nav-links a:hover { color: var(--text); text-decoration: none; }
+
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+  }
+
+  /* ---------- HEADER ---------- */
+  .page-head {
+    padding: 70px 20px 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-head::before {
+    content: "";
+    position: absolute;
+    top: -180px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(88, 101, 242, 0.18), transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page-head > * { position: relative; z-index: 1; }
+
+  .page-head h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 14px;
+  }
+
+  .page-head h1 .accent {
+    background: linear-gradient(135deg, var(--blurple), var(--blurple-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .page-head p {
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 auto;
+    font-size: 1rem;
+  }
+
+  .updated {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 4px 12px;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  /* ---------- CONTENT ---------- */
+  .tos-section {
+    padding: 20px 20px 60px;
+  }
+
+  .tos-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    margin-bottom: 20px;
+  }
+
+  .tos-card h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+
+  .tos-card h3 {
+    font-size: 1.02rem;
+    font-weight: 700;
+    margin: 20px 0 10px;
+    color: var(--blurple-2);
+  }
+
+  .tos-card p {
+    color: var(--muted);
+    font-size: 0.96rem;
+    margin-bottom: 12px;
+  }
+
+  .tos-card ul {
+    margin: 10px 0 14px 22px;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .tos-card li { margin-bottom: 6px; }
+
+  .tos-card code {
+    background: rgba(88, 101, 242, 0.15);
+    color: var(--blurple-2);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.88em;
+    font-family: "SF Mono", Monaco, Menlo, Consolas, monospace;
+  }
+
+  /* ---------- CALLOUTS ---------- */
+  .callout {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 18px 20px;
+    border-radius: var(--radius);
+    margin: 16px 0;
+    font-size: 0.94rem;
+  }
+
+  .callout .icon { font-size: 1.3rem; flex-shrink: 0; line-height: 1.4; }
+  .callout strong { display: block; margin-bottom: 4px; }
+  .callout p { margin: 0; }
+
+  .callout-danger {
+    background: rgba(237, 66, 69, 0.08);
+    border: 1px solid rgba(237, 66, 69, 0.35);
+  }
+  .callout-danger strong { color: var(--danger); }
+
+  .callout-warning {
+    background: rgba(240, 178, 50, 0.08);
+    border: 1px solid rgba(240, 178, 50, 0.35);
+  }
+  .callout-warning strong { color: var(--warning); }
+
+  .callout-info {
+    background: rgba(88, 101, 242, 0.08);
+    border: 1px solid rgba(88, 101, 242, 0.3);
+  }
+  .callout-info strong { color: var(--blurple-2); }
+
+  /* ---------- CTA ---------- */
+  .cta {
+    background: linear-gradient(135deg, rgba(88, 101, 242, 0.12), rgba(88, 101, 242, 0.03));
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px 30px;
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .cta h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+  }
+
+  .cta p { color: var(--muted); margin-bottom: 22px; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.2s ease;
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .btn:active { transform: scale(0.97); }
+  .btn-primary {
+    background: var(--blurple);
+    box-shadow: 0 8px 24px rgba(88, 101, 242, 0.35);
+  }
+  .btn-primary:hover { background: var(--blurple-2); text-decoration: none; }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 30px 20px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  footer a { color: var(--blurple-2); }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<nav>
+  <div class="nav-inner">
+    <a href="/JoinDev/" class="logo">
+      <span class="logo-dot"></span>
+      JoinDev
+    </a>
+    <div class="nav-links">
+      <a href="/JoinDev/#how">How It Works</a>
+      <a href="/JoinDev/#features">Features</a>
+      <a href="/JoinDev/faq">FAQ</a>
+      <a href="/JoinDev/tos">TOS</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HEADER ================= -->
+<header class="page-head">
+  <h1>Terms of <span class="accent">Service</span></h1>
+  <p>By authorizing JoinDev, you agree to the rules below.</p>
+  <div class="updated">Last updated: September 29, 2025</div>
+</header>
+
+<!-- ================= CONTENT ================= -->
+<section class="tos-section">
+  <div class="wrap">
+
+    <div class="tos-card">
+      <h2>1. Acceptance of Terms</h2>
+      <p>
+        By authorizing the JoinDev bot, using any of its commands, or joining our support server,
+        you agree to these Terms of Service. If you do not agree, you must unauthorize the bot
+        and stop using the service.
+      </p>
+    </div>
+
+    <div class="tos-card">
+      <h2>2. Account Requirements</h2>
+      <p>
+        You must have a valid Discord account to use JoinDev. You are responsible for all activity
+        that occurs under your account. You must be at least 13 years old (or the minimum age
+        required in your country) to use Discord and JoinDev.
+      </p>
+    </div>
+
+    <div class="tos-card">
+      <h2>3. Prohibited Conduct</h2>
+
+      <div class="callout callout-danger">
+        <div class="icon">🚫</div>
+        <div>
+          <strong>Zero tolerance for exploitation</strong>
+          <p>
+            Any attempt to exploit, abuse, or copy the JoinDev bot — in whole or in part — will
+            result in permanent blacklisting of your account(s).
+          </p>
+        </div>
+      </div>
+
+      <h3>3.1 No Exploiting or Copying</h3>
+      <p>You may not:</p>
+      <ul>
+        <li>Exploit bugs, glitches, or unintended mechanics for personal gain</li>
+        <li>Reverse-engineer, decompile, or attempt to extract JoinDev's source code</li>
+        <li>Copy, clone, or reupload any part of the JoinDev bot or website</li>
+        <li>Use automation, bots, or scripts to interact with JoinDev</li>
+        <li>Manipulate the JoinCoin economy through unfair means</li>
+      </ul>
+
+      <h3>3.2 No Alting</h3>
+      <p>
+        Creating multiple Discord accounts to farm JoinCoins, place fraudulent orders, or
+        otherwise abuse the system is strictly prohibited.
+      </p>
+      <ul>
+        <li>You may add <strong>one alternate account every 14 days</strong></li>
+        <li>Alternate accounts used to bypass cooldowns, farm coins, or exploit the system will be blacklisted</li>
+        <li>All accounts sharing a flagged IP address may be treated as alts</li>
+      </ul>
+
+      <div class="callout callout-warning">
+        <div class="icon">⚠️</div>
+        <div>
+          <strong>Dev-Anti-Alt System</strong>
+          <p>
+            JoinDev runs a private detection system called <strong>Dev-Anti-Alt</strong>. It
+            monitors account behavior, IP addresses, and usage patterns. Attempts to bypass
+            detection will not succeed — you will be caught.
+          </p>
+        </div>
+      </div>
+
+      <h3>3.3 Server Conduct</h3>
+      <p>Servers that use JoinDev may not:</p>
+      <ul>
+        <li>Contain illegal, harmful, or NSFW content</li>
+        <li>Raid, spam, or harass other servers in the network</li>
+        <li>Use JoinDev to distribute malware, scams, or phishing links</li>
+        <li>Impersonate JoinDev or its staff</li>
+      </ul>
+    </div>
+
+    <div class="tos-card">
+      <h2>4. JoinCoins &amp; Economy</h2>
+      <p>
+        JoinCoins are an in-bot virtual currency with no real-world monetary value. JoinDev
+        reserves the right to:
+      </p>
+      <ul>
+        <li>Adjust JoinCoin amounts, earning rates, or spending costs at any time</li>
+        <li>Remove JoinCoins from any account suspected of abuse or fraud</li>
+        <li>Refund or reverse transactions that violate these terms</li>
+        <li>Reset or wipe the economy if a critical issue is detected</li>
+      </ul>
+      <p>
+        JoinCoins cannot be transferred, sold, or traded outside the JoinDev system. Any attempt
+        to do so is a violation of these terms.
+      </p>
+    </div>
+
+    <div class="tos-card">
+      <h2>5. Blacklisting &amp; Appeals</h2>
+      <p>
+        If you are blacklisted, you will receive a DM explaining why. All JoinCoins on your
+        account will be stripped, and you will no longer be able to use JoinDev commands.
+      </p>
+      <p>
+        You get <strong>one appeal per account</strong>. Submit it via:
+      </p>
+      <ul>
+        <li>A support ticket in our Discord server (preferred)</li>
+        <li>Or the <code>.appeal &lt;note&gt; &lt;user_id&gt;</code> command in Discord</li>
+      </ul>
+      <p>
+        If your appeal is accepted, you will be unbanned. However, a <strong>second violation
+        results in a permanent, unappealable ban.</strong>
+      </p>
+    </div>
+
+    <div class="tos-card">
+      <h2>6. Data &amp; Privacy</h2>
+      <p>To operate JoinDev, we collect and store:</p>
+      <ul>
+        <li>Your Discord user ID and username</li>
+        <li>Your OAuth2 access and refresh tokens (used to add you to servers)</li>
+        <li>Your IP address (used for alt detection — see our Privacy Policy)</li>
+        <li>Your JoinCoin balance, daily streak, and order history</li>
+      </ul>
+      <p>
+        We do not read your messages, DMs, or server content. See our
+        <a href="/JoinDev/privacy">Privacy Policy</a> for full details.
+      </p>
+    </div>
+
+    <div class="tos-card">
+      <h2>7. Service Availability</h2>
+      <p>
+        JoinDev is provided "as is" and "as available." We do not guarantee uptime, bug-free
+        operation, or that your orders will always complete. We are not liable for:
+      </p>
+      <ul>
+        <li>Discord API outages or rate limits</li>
+        <li>Servers being deleted or the bot being removed</li>
+        <li>Loss of JoinCoins due to technical issues</li>
+        <li>Members leaving servers before the 3-day requirement</li>
+      </ul>
+    </div>
+
+    <div class="tos-card">
+      <h2>8. Termination</h2>
+      <p>
+        You may stop using JoinDev at any time by unauthorizing the bot in your Discord settings.
+        We may terminate or suspend your access at any time, with or without notice, for violations
+        of these terms.
+      </p>
+    </div>
+
+    <div class="tos-card">
+      <h2>9. Changes to These Terms</h2>
+      <p>
+        We may update these Terms of Service at any time. Continued use of JoinDev after a change
+        constitutes acceptance of the new terms. Significant changes will be announced in our
+        support server.
+      </p>
+    </div>
+
+    <div class="tos-card">
+      <h2>10. Contact</h2>
+      <p>
+        For questions, appeals, or reports, open a ticket in our support server:
+        <a href="https://discord.gg/HJbbKYbr2y" target="_blank" rel="noopener">discord.gg/HJbbKYbr2y</a>
+      </p>
+    </div>
+
+    <div class="cta">
+      <h2>Need help or have questions?</h2>
+      <p>Join our Discord — we're always here to help.</p>
+      <a class="btn btn-primary" href="https://discord.gg/HJbbKYbr2y" target="_blank" rel="noopener">
+        Join Our Discord
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <p>© 2025 JoinDev. Server growth made easy!</p>
+    <p style="margin-top: 8px;">
+      <a href="https://discord.gg/HJbbKYbr2y" target="_blank" rel="noopener">Join our Discord</a>
+      &nbsp;•&nbsp;
+      <a href="/JoinDev/">Home</a>
+      &nbsp;•&nbsp;
+      <a href="/JoinDev/faq">FAQ</a>
+      &nbsp;•&nbsp;
+      <a href="/JoinDev/tos">TOS</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
