@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Privacy Policy — JoinDev</title>
+<meta name="description" content="JoinDev Privacy Policy — what data we collect, why, and how to remove it." />
+<style>
+  :root {
+    --bg: #0b0d12;
+    --bg-2: #12151c;
+    --card: #161a23;
+    --border: #232838;
+    --text: #e6e9ef;
+    --muted: #8b93a7;
+    --blurple: #5865F2;
+    --blurple-2: #7c85ff;
+    --warning: #f0b232;
+    --danger: #ED4245;
+    --green: #23a55a;
+    --radius: 14px;
+    --max: 900px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--blurple-2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .wrap {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(11, 13, 18, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .logo {
+    font-weight: 800;
+    font-size: 1.15rem;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text);
+  }
+
+  .logo-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--blurple);
+    box-shadow: 0 0 12px var(--blurple);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 22px;
+    font-size: 0.92rem;
+    color: var(--muted);
+  }
+
+  .nav-links a { color: var(--muted); }
+  .nav-links a:hover { color: var(--text); text-decoration: none; }
+
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+  }
+
+  .page-head {
+    padding: 70px 20px 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-head::before {
+    content: "";
+    position: absolute;
+    top: -180px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(88, 101, 242, 0.18), transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page-head > * { position: relative; z-index: 1; }
+
+  .page-head h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 14px;
+  }
+
+  .page-head h1 .accent {
+    background: linear-gradient(135deg, var(--blurple), var(--blurple-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .page-head p {
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 auto;
+    font-size: 1rem;
+  }
+
+  .updated {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 4px 12px;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  .privacy-section {
+    padding: 20px 20px 60px;
+  }
+
+  .privacy-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    margin-bottom: 20px;
+  }
+
+  .privacy-card h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+
+  .privacy-card h3 {
+    font-size: 1.02rem;
+    font-weight: 700;
+    margin: 20px 0 10px;
+    color: var(--blurple-2);
+  }
+
+  .privacy-card p {
+    color: var(--muted);
+    font-size: 0.96rem;
+    margin-bottom: 12px;
+  }
+
+  .privacy-card ul {
+    margin: 10px 0 14px 22px;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .privacy-card li { margin-bottom: 6px; }
+
+  .privacy-card code {
+    background: rgba(88, 101, 242, 0.15);
+    color: var(--blurple-2);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.88em;
+    font-family: "SF Mono", Monaco, Menlo, Consolas, monospace;
+  }
+
+  /* Table for data types */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 0.9rem;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  .data-table th {
+    background: var(--bg-2);
+    font-weight: 700;
+    color: var(--text);
+    font-size: 0.88rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .data-table td { color: var(--muted); }
+  .data-table tr:last-child td { border-bottom: none; }
+
+  .callout {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 18px 20px;
+    border-radius: var(--radius);
+    margin: 16px 0;
+    font-size: 0.94rem;
+  }
+
+  .callout .icon { font-size: 1.3rem; flex-shrink: 0; line-height: 1.4; }
+  .callout strong { display: block; margin-bottom: 4px; }
+  .callout p { margin: 0; }
+
+  .callout-info {
+    background: rgba(88, 101, 242, 0.08);
+    border: 1px solid rgba(88, 101, 242, 0.3);
+  }
+  .callout-info strong { color: var(--blurple-2); }
+
+  .callout-green {
+    background: rgba(35, 165, 90, 0.08);
+    border: 1px solid rgba(35, 165, 90, 0.35);
+  }
+  .callout-green strong { color: var(--green); }
+
+  .cta {
+    background: linear-gradient(135deg, rgba(88, 101, 242, 0.12), rgba(88, 101, 242, 0.03));
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px 30px;
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .cta h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+  }
+
+  .cta p { color: var(--muted); margin-bottom: 22px; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    background: var(--blurple);
+    box-shadow: 0 8px 24px rgba(88, 101, 242, 0.35);
+  }
+
+  .btn:hover { background: var(--blurple-2); text-decoration: none; }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 30px 20px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  footer a { color: var(--blurple-2); }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/JoinDev/" class="logo">
+      <span class="logo-dot"></span>
+      JoinDev
+    </a>
+    <div class="nav-links">
+      <a href="/JoinDev/#how">How It Works</a>
+      <a href="/JoinDev/#features">Features</a>
+      <a href="/JoinDev/faq">FAQ</a>
+      <a href="/JoinDev/tos">TOS</a>
+      <a href="/JoinDev/privacy">Privacy</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-head">
+  <h1>Privacy <span class="accent">Policy</span></h1>
+  <p>What data we collect, why, and how to remove it.</p>
+  <div class="updated">Last updated: September 29, 2025</div>
+</header>
+
+<section class="privacy-section">
+  <div class="wrap">
+
+    <div class="privacy-card">
+      <h2>1. Overview</h2>
+      <p>
+        This Privacy Policy explains what data <strong>JoinDev</strong> collects when you authorize
+        our Discord bot, why we collect it, how long we keep it, and how you can request its removal.
+      </p>
+      <p>
+        By authorizing JoinDev, you consent to the data practices described here.
+      </p>
+    </div>
+
+    <div class="privacy-card">
+      <h2>2. What Data We Collect</h2>
+      <p>When you authorize JoinDev, we collect the following information:</p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Data Type</th>
+            <th>Why We Collect It</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Discord User ID</strong></td>
+            <td>To identify your account, track JoinCoins, and manage orders</td>
+          </tr>
+          <tr>
+            <td><strong>Discord Username</strong></td>
+            <td>To display your name in DMs and admin tools</td>
+          </tr>
+          <tr>
+            <td><strong>OAuth2 Access &amp; Refresh Tokens</strong></td>
+            <td>To add you to servers on your behalf (the <code>guilds.join</code> scope)</td>
+          </tr>
+          <tr>
+            <td><strong>IP Address</strong></td>
+            <td>Alt detection — to catch users who abuse the system with multiple accounts</td>
+          </tr>
+          <tr>
+            <td><strong>JoinCoin Balance</strong></td>
+            <td>To track your earnings and spending</td>
+          </tr>
+          <tr>
+            <td><strong>Order History</strong></td>
+            <td>To process and complete your server growth orders</td>
+          </tr>
+          <tr>
+            <td><strong>Timestamps</strong></td>
+            <td>To enforce daily cooldowns and 3-day reward windows</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-green">
+        <div class="icon">✅</div>
+        <div>
+          <strong>What we do NOT collect</strong>
+          <p>
+            We never read your messages, DMs, or server content. We don't know what servers you're
+            in beyond what's needed to add you. We don't collect your email, real name, or location.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="privacy-card">
+      <h2>3. How We Use Your Data</h2>
+      <p>Your data is used only for:</p>
+      <ul>
+        <li>Running the JoinDev bot and its commands</li>
+        <li>Adding you to servers when orders are placed</li>
+        <li>Tracking your JoinCoins, daily streaks, and order history</li>
+        <li>Detecting abuse and alting through IP comparison</li>
+        <li>Sending you DMs about your orders and rewards</li>
+      </ul>
+      <p>
+        We do <strong>not</strong> sell, rent, or share your data with third parties for
+        advertising or marketing.
+      </p>
+    </div>
+
+    <div class="privacy-card">
+      <h2>4. IP Address &amp; Alt Detection</h2>
+      <p>
+        JoinDev stores your IP address when you authorize via OAuth. This is used exclusively
+        for our <strong>Dev-Anti-Alt</strong> system to detect users who create multiple accounts
+        to exploit JoinCoins.
+      </p>
+      <ul>
+        <li>IPs are stored for a maximum of <strong>90 days</strong> after your last activity</li>
+        <li>IPs are only accessed by the bot administrators</li>
+        <li>IPs are never sold, shared, or used for advertising</li>
+        <li>Your IP is deleted when you unauthorize the bot (see Section 7)</li>
+      </ul>
+      <div class="callout callout-info">
+        <div class="icon">ℹ️</div>
+        <div>
+          <strong>Why we need this</strong>
+          <p>
+            Without IP-based detection, anyone could farm hundreds of JoinCoins with alt accounts,
+            draining the economy and making the service unfair for real users.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="privacy-card">
+      <h2>5. Data Retention</h2>
+      <p>We keep your data for as long as you use JoinDev:</p>
+      <ul>
+        <li><strong>Active users:</strong> Data retained while you're authorized</li>
+        <li><strong>IP addresses:</strong> Retained up to 90 days after your last activity</li>
+        <li><strong>Inactive users (no activity for 1 year):</strong> Data may be purged automatically</li>
+        <li><strong>After unauthorization:</strong> Deleted within 30 days</li>
+        <li><strong>Banned users:</strong> Data retained for 1 year for appeal purposes, then deleted</li>
+      </ul>
+    </div>
+
+    <div class="privacy-card">
+      <h2>6. Data Security</h2>
+      <p>
+        Your data is stored on a secured PostgreSQL database hosted on Render. Access is
+        restricted to the JoinDev bot administrators. OAuth tokens are stored encrypted at rest.
+      </p>
+      <p>
+        We take reasonable steps to protect your data, but no system is 100% secure. If a
+        security incident affects your data, we will notify affected users via Discord DM.
+      </p>
+    </div>
+
+    <div class="privacy-card">
+      <h2>7. Your Rights</h2>
+      <p>You have the right to:</p>
+
+      <h3>7.1 Access Your Data</h3>
+      <p>
+        You can see what JoinDev stores about you by running <code>/status</code> in Discord.
+        For a full data export, open a support ticket.
+      </p>
+
+      <h3>7.2 Delete Your Data</h3>
+      <p>
+        To have all your data deleted:
+      </p>
+      <ul>
+        <li><strong>Option 1:</strong> Unauthorize JoinDev in your Discord settings (User Settings → Authorized Apps → JoinDev → Deauthorize)</li>
+        <li><strong>Option 2:</strong> Open a support ticket requesting data deletion</li>
+        <li><strong>Option 3:</strong> DM the bot <code>/delete_my_data</code> (if available)</li>
+      </ul>
+      <p>
+        Once unauthorized, your data will be deleted within 30 days.
+      </p>
+
+      <h3>7.3 Correct Your Data</h3>
+      <p>
+        If any of your stored data is incorrect (e.g., wrong coin balance), open a support ticket.
+      </p>
+
+      <h3>7.4 Object or Restrict Processing</h3>
+      <p>
+        You can leave the farming pool at any time with <code>/cancel_joinr</code>. This stops
+        future processing of your account for server joins.
+      </p>
+    </div>
+
+    <div class="privacy-card">
+      <h2>8. Children's Privacy</h2>
+      <p>
+        JoinDev is not intended for users under 13 years old (or the minimum age in your country).
+        We do not knowingly collect data from children. If we discover we have, we will delete
+        it immediately.
+      </p>
+    </div>
+
+    <div class="privacy-card">
+      <h2>9. Third-Party Services</h2>
+      <p>JoinDev relies on the following third-party services:</p>
+      <ul>
+        <li><strong>Discord</strong> — for OAuth2, bot hosting, and user data source</li>
+        <li><strong>Render</strong> — for hosting the bot and PostgreSQL database</li>
+        <li><strong>GitHub Pages</strong> — for hosting this website</li>
+      </ul>
+      <p>
+        Each service has its own privacy policy. We recommend reviewing them if you have concerns.
+      </p>
+    </div>
+
+    <div class="privacy-card">
+      <h2>10. Changes to This Policy</h2>
+      <p>
+        We may update this Privacy Policy at any time. Significant changes will be announced in
+        our support server. Continued use of JoinDev after a change means you accept the updated
+        policy.
+      </p>
+    </div>
+
+    <div class="privacy-card">
+      <h2>11. Contact</h2>
+      <p>
+        For privacy questions, data requests, or reports, open a ticket in our support server:
+        <a href="https://discord.gg/HJbbKYbr2y" target="_blank" rel="noopener">discord.gg/HJbbKYbr2y</a>
+      </p>
+    </div>
+
+    <div class="cta">
+      <h2>Questions about your data?</h2>
+      <p>Reach out in our Discord — we're always around to help.</p>
+      <a class="btn" href="https://discord.gg/HJbbKYbr2y" target="_blank" rel="noopener">
+        Join Our Discord
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>© 2025 JoinDev. Server growth made easy!</p>
+    <p style="margin-top: 8px;">
+      <a href="https://discord.gg/HJbbKYbr2y" target="_blank" rel="noopener">Join our Discord</a>
+      &nbsp;•&nbsp;
+      <a href="/JoinDev/">Home</a>
+      &nbsp;•&nbsp;
+      <a href="/JoinDev/faq">FAQ</a>
+      &nbsp;•&nbsp;
+      <a href="/JoinDev/tos">TOS</a>
+      &nbsp;•&nbsp;
+      <a href="/JoinDev/privacy">Privacy</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
