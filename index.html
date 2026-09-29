@@ -39,6 +39,44 @@
     padding: 0 20px;
   }
 
+  /* ---------- TOS BANNER ---------- */
+  .tos-banner {
+    background: linear-gradient(135deg, rgba(88, 101, 242, 0.15), rgba(88, 101, 242, 0.05));
+    border-bottom: 1px solid rgba(88, 101, 242, 0.3);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .tos-banner-text {
+    font-size: 0.92rem;
+    color: var(--text);
+  }
+
+  .tos-banner-text strong { color: var(--blurple-2); }
+
+  .tos-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    background: var(--blurple);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.92rem;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(88, 101, 242, 0.4);
+    transition: transform 0.15s ease, background 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .tos-btn:hover { background: var(--blurple-2); }
+  .tos-btn:active { transform: scale(0.97); }
+
   /* ---------- NAV ---------- */
   nav {
     position: sticky;
@@ -243,7 +281,6 @@
   }
 
   .step h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
-
   .step p { font-size: 0.88rem; color: var(--muted); line-height: 1.55; }
 
   /* ---------- FEATURES ---------- */
@@ -310,6 +347,16 @@
 </head>
 <body>
 
+<!-- ================= TOS BANNER (TOP OF PAGE) ================= -->
+<div class="tos-banner">
+  <span class="tos-banner-text">
+    <strong>📜 Before you use JoinDev</strong> — please read our rules
+  </span>
+  <a class="tos-btn" href="/JoinDev/tos">
+    Read TOS →
+  </a>
+</div>
+
 <!-- ================= NAV ================= -->
 <nav>
   <div class="nav-inner">
@@ -321,6 +368,7 @@
       <a href="#how">How It Works</a>
       <a href="#features">Features</a>
       <a href="/JoinDev/faq">FAQ</a>
+      <a href="/JoinDev/tos">TOS</a>
       <a href="#start">Get Started</a>
     </div>
   </div>
@@ -447,29 +495,20 @@
       &nbsp;•&nbsp;
       <a href="/JoinDev/faq">FAQ</a>
       &nbsp;•&nbsp;
+      <a href="/JoinDev/tos">TOS</a>
+      &nbsp;•&nbsp;
       <a href="#how">How It Works</a>
     </p>
   </div>
 </footer>
 
 <script>
-  /*
-   * ============================================================
-   *  LINK CONFIGURATION
-   * ============================================================
-   */
   const LINKS = {
-    // Authorize (grants OAuth scopes, sends welcome DM)
     authorizeBot: "https://discord.com/oauth2/authorize?client_id=1552458677821382656&response_type=code&redirect_uri=https%3A%2F%2Fjoindev.onrender.com%2Fcallback&scope=identify+guilds+guilds.join",
-
-    // Add Bot (installs the bot to a server)
     addBot: "https://discord.com/oauth2/authorize?client_id=1552458677821382656",
-
-    // Discord server invite
     joinServer: "https://discord.gg/HJbbKYbr2y"
   };
 
-  // Wire up all buttons
   document.getElementById("authorizeBtn").href = LINKS.authorizeBot;
   document.getElementById("ctaBtn").href       = LINKS.authorizeBot;
   document.getElementById("addBotBtn").href    = LINKS.addBot;
