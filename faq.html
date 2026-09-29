@@ -23,7 +23,6 @@
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -42,7 +41,6 @@
     padding: 0 20px;
   }
 
-  /* ---------- NAV ---------- */
   nav {
     position: sticky;
     top: 0;
@@ -91,7 +89,6 @@
     .nav-links { display: none; }
   }
 
-  /* ---------- BUTTONS ---------- */
   .btn {
     display: inline-flex;
     align-items: center;
@@ -117,7 +114,6 @@
 
   .btn-primary:hover { background: var(--blurple-2); }
 
-  /* ---------- PAGE HEADER ---------- */
   .page-head {
     padding: 70px 20px 30px;
     text-align: center;
@@ -162,7 +158,6 @@
     font-size: 1.02rem;
   }
 
-  /* ---------- FAQ ---------- */
   .faq-section {
     padding: 30px 20px 60px;
   }
@@ -177,7 +172,6 @@
   }
 
   .faq-item:hover { border-color: rgba(88, 101, 242, 0.5); }
-
   .faq-item[open] { border-color: var(--blurple); }
 
   .faq-item summary {
@@ -205,9 +199,7 @@
     line-height: 1;
   }
 
-  .faq-item[open] summary::after {
-    content: "−";
-  }
+  .faq-item[open] summary::after { content: "−"; }
 
   .faq-body {
     padding: 0 24px 22px;
@@ -237,7 +229,6 @@
     font-family: "SF Mono", Monaco, Menlo, Consolas, monospace;
   }
 
-  /* ---------- SAFETY NOTE ---------- */
   .safety-note {
     background: var(--warning-bg);
     border: 1px solid var(--warning-border);
@@ -249,15 +240,8 @@
     align-items: flex-start;
   }
 
-  .safety-note .icon {
-    font-size: 1.5rem;
-    flex-shrink: 0;
-    line-height: 1.4;
-  }
-
-  .safety-note .content {
-    flex: 1;
-  }
+  .safety-note .icon { font-size: 1.5rem; flex-shrink: 0; line-height: 1.4; }
+  .safety-note .content { flex: 1; }
 
   .safety-note strong {
     color: var(--warning);
@@ -281,7 +265,6 @@
     font-family: "SF Mono", Monaco, Menlo, Consolas, monospace;
   }
 
-  /* ---------- CTA ---------- */
   .cta {
     background: linear-gradient(135deg, rgba(88, 101, 242, 0.12), rgba(88, 101, 242, 0.03));
     border: 1px solid var(--border);
@@ -297,12 +280,8 @@
     margin-bottom: 12px;
   }
 
-  .cta p {
-    color: var(--muted);
-    margin-bottom: 24px;
-  }
+  .cta p { color: var(--muted); margin-bottom: 24px; }
 
-  /* ---------- FOOTER ---------- */
   footer {
     border-top: 1px solid var(--border);
     padding: 30px 20px;
@@ -317,7 +296,6 @@
 </head>
 <body>
 
-<!-- ================= NAV ================= -->
 <nav>
   <div class="nav-inner">
     <a href="/JoinDev/" class="logo">
@@ -328,21 +306,20 @@
       <a href="/JoinDev/#how">How It Works</a>
       <a href="/JoinDev/#features">Features</a>
       <a href="/JoinDev/faq">FAQ</a>
+      <a href="/JoinDev/tos">TOS</a>
+      <a href="/JoinDev/privacy">Privacy</a>
     </div>
   </div>
 </nav>
 
-<!-- ================= PAGE HEADER ================= -->
 <header class="page-head">
   <h1>Frequently Asked <span class="accent">Questions</span></h1>
   <p>Everything you need to know about JoinDev. Still stuck? Join our Discord and ask away.</p>
 </header>
 
-<!-- ================= FAQ LIST ================= -->
 <section class="faq-section">
   <div class="wrap">
 
-    <!-- Q1 -->
     <details class="faq-item" open>
       <summary>How do I start?</summary>
       <div class="faq-body">
@@ -353,7 +330,6 @@
       </div>
     </details>
 
-    <!-- Q2 -->
     <details class="faq-item">
       <summary>How will I know what servers the bot joins me to?</summary>
       <div class="faq-body">
@@ -364,7 +340,6 @@
       </div>
     </details>
 
-    <!-- Q3 -->
     <details class="faq-item">
       <summary>How many days until I get my JoinCoin for being in a server?</summary>
       <div class="faq-body">
@@ -375,7 +350,6 @@
       </div>
     </details>
 
-    <!-- Q4 -->
     <details class="faq-item">
       <summary>Am I able to purchase JoinCoins?</summary>
       <div class="faq-body">
@@ -386,7 +360,6 @@
       </div>
     </details>
 
-    <!-- Q5 -->
     <details class="faq-item">
       <summary>Why does the bot need administrator?</summary>
       <div class="faq-body">
@@ -398,7 +371,6 @@
       </div>
     </details>
 
-    <!-- Q6 -->
     <details class="faq-item">
       <summary>What happens if the bot token gets leaked?</summary>
       <div class="faq-body">
@@ -410,7 +382,6 @@
       </div>
     </details>
 
-    <!-- Q7 -->
     <details class="faq-item">
       <summary>What's the status of the service?</summary>
       <div class="faq-body">
@@ -421,7 +392,6 @@
       </div>
     </details>
 
-    <!-- Q8 -->
     <details class="faq-item">
       <summary>How do JoinCoins work?</summary>
       <div class="faq-body">
@@ -432,7 +402,6 @@
       </div>
     </details>
 
-    <!-- SAFETY NOTE -->
     <div class="safety-note">
       <div class="icon">⚠️</div>
       <div class="content">
@@ -444,7 +413,6 @@
       </div>
     </div>
 
-    <!-- CTA -->
     <div class="cta">
       <h2>Still have questions?</h2>
       <p>Hop into our Discord — we're always around to help.</p>
@@ -456,7 +424,6 @@
   </div>
 </section>
 
-<!-- ================= FOOTER ================= -->
 <footer>
   <div class="wrap">
     <p>© 2025 JoinDev. Server growth made easy!</p>
@@ -465,26 +432,19 @@
       &nbsp;•&nbsp;
       <a href="/JoinDev/">Home</a>
       &nbsp;•&nbsp;
+      <a href="/JoinDev/tos">TOS</a>
+      &nbsp;•&nbsp;
+      <a href="/JoinDev/privacy">Privacy</a>
+      &nbsp;•&nbsp;
       <a href="/JoinDev/#how">How It Works</a>
     </p>
   </div>
 </footer>
 
 <script>
-  /*
-   * ============================================================
-   *  LINK CONFIGURATION — edit these two values only
-   * ============================================================
-   */
   const LINKS = {
-    // Bot authorization URL (used for the "this" link in Q1)
-    authorizeBot: "https://discord.com/oauth2/authorize?client_id=1552458677821382656&response_type=code&redirect_uri=https%3A%2F%2Fdiscord.com%2Foauth2%2Fauthorize%3Fclient_id%3D1552458677821382656&scope=guilds+identify+guilds.join",
-
-    // Discord server invite
-    joinServer: "https://discord.gg/HJbbKYbr2y"
+    authorizeBot: "https://discord.com/oauth2/authorize?client_id=1552458677821382656&response_type=code&redirect_uri=https%3A%2F%2Fjoindev.onrender.com%2Fcallback&scope=identify+guilds+guilds.join"
   };
-
-  // Wire up the "this" link in Q1
   document.getElementById("authorizeLink").href = LINKS.authorizeBot;
 </script>
 
